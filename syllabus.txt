@@ -1,0 +1,11 @@
+	# THIS IS THE SYLLABUS CONTENT FOR DATA SCIENCE
+
+1 List its indexing basic functions like [min,max,length,copy]
+
+2 Numpy package [array ,2-D array,create 2-D array]
+
+3 Matplotlib [line-graph, scatter-graph, histogram]
+
+4 Pandas [High level data manipulation tool built on numpy ]
+
+5 Python for Generators and Comprehensions

@@ -1,0 +1,60 @@
+
+
+
+
+1 like for loop use enumerate()
+   for index,value in enumerate(list):  // It produces both index and the list values
+
+2 To make a variable in a function as global to access anywhere in script use
+       global local_var_name 	//inside function
+       nonlocal can also be used 	//inside nested function to change value
+3 To give arguments as in form of dictionary in python in functions
+  cmd 	def name(**kwargs)  //kwargs is used to pass multiple arguments but as in form of dictionary
+  
+  cmd 	def name(*args)     // args is used to give arguments as tuple
+
+4 Filter function
+  cmd 	filter(lambda func,list)	// use to filter out some specific values from the list on some specific condition`
+
+5  The reduce() function is useful for performing some computation on a list and, unlike map() and filter(), returns a single value as a result. To       use reduce(), you must import it from the functools module.
+
+6 Function like
+	enumerate(lisT_name)  //convert list name with index
+	 convert its above object to list(e) // e is above enumerate object
+
+	// for index,value in enumerate(obj , start=10):   //pass start for 			stating from that value [for loop]
+
+7 Zip is the iterator of list
+	zip(list1,list2)
+	 [convert it in list as list(obj_zip)]
+
+8 List Comprehension : creating list from other list [collapses the for loop]
+	new_list = [num+1 for num in nums]  	//num is variable and nums is the old list(iterating)  
+	
+	# NOTE nested for loops can also be used for this
+	
+		num_2 = [(num1,num2) for num1 in range(0,2) for num2 in range(6,8)]
+			
+			output -> (0,6),(0,7),(1,6),(1,7)
+
+
+9 To create matrix with the loop
+	[[output expression] for iterator variable in iterable]
+
+
+10 To create dictinoary use {}
+	pos_ne = {num: -num for num in range(0)}    //dict will be created{0:-0}
+	
+11 If else can also be used 
+
+
+12 new_fellowship = [member if len(member)>=7 else "" for member in fellowship]
+	//for if and else both condition
+
+
+
+13 Comprehension vs generators
+	comprehension generate list but generators dont they dont save values in memory
+	-> generators are mainly use with large sequence and can pass to functions use " () " rather than [ ]
+
+   use next(object) to get the next element of iterator

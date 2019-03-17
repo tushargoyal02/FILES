@@ -1,0 +1,39 @@
+? How to make namespace for user to dont access other pods
+
+1 Namespace is like directory [as such user in linux]
+	
+  BY defalult 3 name space are there
+	kubectl get namespaces
+
+  To check the pods in kube-system namespace
+	kubectl get pods -n kube-system
+
+->	kube-proxy is always on Nodes
+
+	kubectl delete all --all 	// to delete all pods of current namespace
+
+2 Try to make deployments for every pods [either one]
+
+	kubectl create deployment tushar --image=nginx    [last is the image]
+		[pod will ]
+	
+	
+	kubectl delete deployment tushar 	//to delete deployment     [autmotaically will create if pod is deleted]
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+? Task for you by ashu 
+
+
+	[github-> repo phpapp{index,php,DockerFile }  --> clone locally [use docker build to create new image with name as tag[php:tushar]]]
+		use this docker image to create deployement in kubernates
+		update index.php and repeat the same
+
+
+		create new docker hub account push your updated images to it [as master will not be able too make images of your base images]
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+3  kubectl scale deployment name_deployment --replicas=3   // to scale up all the pods 
+

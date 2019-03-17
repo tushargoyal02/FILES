@@ -1,0 +1,50 @@
+								# THIS IS FOR THE PANDASI
+
+
+1 To give index to all row
+  cmd	bric.index = ["a","b","c","d"] 
+
+2 To set the index for the file [if neccessary]
+  cmd  	bric=pd.read_csv("/path",  index_col=0)      //index_col=0 is used to set the reference for the the dataframe
+
+3 To create dataframe from dictinory
+  cmd bri=pd.DataFrame(dictionary)
+
+4 If you select like this is mainly for columns
+  cmd	bricks['col_namie']  	 //You will see the data is in series which is not good
+  cmd   bricks[['col_name']] 	 // To get data as dataframe
+
+5 For row select
+  cmd 	brick[1:4]		// use slicing or index
+
+---------------------------------------------------------------
+ Series is good if you want to compare something like each value to other rather than dataframe
+---------------------------------------------------------------
+
+  # Simply this above approch has limitation as its like NdArray
+
+
+6 NEW INTRODUCTION to LOC and ILOC
+
+  cmd bricks.loc[["row index name"]]	// we will get dataframe rather than series & all the columns
+
+  cmd bricks.loc[["row_index_name], ["col1_name","col2_name" ] ]  	// to get some specific column data
+
+
+	NOTE -- ILOC and LOc is same the difference is that how you access data 
+        	ILOC - we referred using index 				 brick[:,[0,1]]
+
+        	LoC  - We referred using index_name of column		 brick[['row_name'],['col_name']]
+ 
+7 To get the lenngth of string and new column in dataframe
+  cmd     bric[name_new_column] = bric["col_you_waana_apply"].apply(len)      		//this will create new col with the len of string of col
+
+8 To get rows printed using for loop
+
+  cmd  	  for lab,row in bric.iterrows():
+		print(lab +"="+ row['col_name']           
+
+
+9 To divide and iterate large data
+	for chunk in pd.read_csv("file.name" , chunksize=100)      //chunksize will be tbe number of partition
+	

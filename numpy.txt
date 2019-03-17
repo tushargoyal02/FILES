@@ -1,0 +1,57 @@
+1 To get the values greater than something if you type
+  cmd	array > 23  
+	[above will return boolean values as True or False]
+
+  To get the values from array put
+   cmd-	array[array>23]
+	[value for the arrayy will be generated rather than boolean value]
+
+2 To find the element at particular index
+   cmd  b=np.array(a)
+	b[50]    #[index postion and same as for slicing]
+
+3 To get the knowledge of numpy array
+  cmd   np_array.shape()
+
+
+	[ NOTE -- subsetting can also be done in numpy as 
+ 	
+		- np_2d[0][2]
+    	     OR - np_2d[0,2]   {both subsetting are same}    ]
+
+	Like we want for multile user or data
+
+		cmd     np_2d[:,1:3]
+
+
+  example - select the 123 column of height and weight column
+		np_2d[123,:]
+		   (123 is row and : denotes all column [put 0 for first column]
+
+4 To get mean or median of ndarray
+   cmd  np.mean(arrayname)
+	np.median(arrayname)
+
+---------------------------------------------------------------------------------------
+	AND OR OPERATION DOESNT WORK NORMALLY SO USE np.logical_and(), or(), not() 
+
+   eg:  bmi[ np.logical_and( bmi>21 , bmi<23 )]
+----------------------------------------------------------------------------------------
+
+
+5 Iteration in numpy
+  cmd 	 for val in np.nditer(2D_array):   		//This is for 2D array in numpy print
+		print(val)
+
+
+
+6  np.random.rand()   					// to generate random numbers
+   np.random.seed(123)  				// To set seed to make a random number  run rand() to get the number
+	
+	[Like for a coin toss - np.random.seed(123)
+				coin=np.random.randint(0,2)
+	// above will generate either 0 or 1 [0 is starting number 2 is till what value]			]
+
+
+7 To transpose element of nd-array
+  cmd 	np.transpose()

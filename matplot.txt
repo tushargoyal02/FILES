@@ -1,0 +1,41 @@
+#! This is for matplotlib
+ import matplotlib.pyplot as plt
+
+1 To plot line chart
+  cmd	plt.plot(x,y)
+  cmd   plt.show()   [to make it visible]
+
+2 To plot scatter plot [For correlation b/w 2 variables]
+  cmd	plt.scatter(x,y)
+
+  To add logarithmic scale add this
+  cmd 	plt.xscale('log')
+ 
+ IMPORTANT-
+	TO DEFINE SIZE OF SCATTER IN GRAPH
+          --     plt.scatter(data_x,data_y, s=data_x)      // s here is size and s=data_x we are defining the size of bubble
+          --     plt.scatter(data_x,data_y, s=data_x,c=col)     // c here is color and c=col we are defining the color of bubble col - dictionary
+          --     plt.scatter(data_x,data_y, s=data_x,c=col,alpha=0.8)     // alpha is opacity
+
+3 Histogram [Great to see the idea of distribution]
+  cmd  	help(plt.hist)   (for more help)
+  
+        [2 argument are important ->   x (value you want to make histogram), bins (how many bins data should be divided)   ]
+
+
+   CMD 	plt.hist(x,bins=3)
+
+4  plt.clf [cleans it up to start afresh previous graph is not removed]
+
+5 Graph Customization
+  cmd 	plt.xlabel("x-axis")
+  cmd   plt.ylabel("y-axis")
+  cmd   plt.title("title")
+
+ IMPORTANT:
+  - TO CHANGE THE LABEL FOR Y AXIS 
+    cmd    plt.yticks([0,2,4,6,8] , ['0','2b','4c','6d','8e'] )       // You will see changes on Y-label of graph [xticks work the same]
+
+6 To set particular name at specific values use plt.text() & for grid use plt.grid(True)
+  cmd 	plt.text(x_value, y_value ,  "name")
+  cmd   plt.grid(True)

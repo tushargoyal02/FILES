@@ -55,3 +55,17 @@
 
 7 To transpose element of nd-array
   cmd 	np.transpose()
+
+-------------
+
+8 To read files using numpy
+  np.loadtxt(filename,delimiter=',')  
+  	np.loadtxt(filename,delimiter=',',skiprows=1,usecols=[0,2],dtype=str)	 //skiprows-> first row is header and usecol->specific str for strng 
+
+9 np.genfromtxt(filename,delimiter=',', names=True) 	//names--> tells about the header name
+
+
+10 To load specific spreadsheet 
+	x1.parse(Spreadsheet_Name)	//for a specific sheet
+ 
+

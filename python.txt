@@ -58,3 +58,82 @@
 	-> generators are mainly use with large sequence and can pass to functions use " () " rather than [ ]
 
    use next(object) to get the next element of iterator
+
+
+14  var.parse('String')		//string name on behalf of which you want to parse the dataset
+
+
+
+
+15  DataBases 
+	from sqlalchemy import create_engine
+	engine = create_engine("db:///name.sqlite")
+	table_name = engine.table_names()
+
+	--> import packages, createEngine , connect to db, execute the querry
+
+
+	con=engine.connect()
+	rs=con.execute("statemt")
+-->	df=pd.DataFrame(rs.fetchall())				// fetchmany(size=3) 		only some specific data
+	
+	[df.columns = rs.keys()]	//if column  name is not good
+
+	con.close()
+
+	# Set the DataFrame's column names
+    	df.columns=rs.keys()
+
+	with engine.connect() as con:
+		rs = con.execute("querry")
+
+
+
+    ALTERNATIVE --   pd.read_sql_query("querry ",  engineName)
+						inner JOIN on tabl1.orderNo=table2.order2
+
+
+-------------------------
+	Data extract from URL
+--------------------------
+
+	from urllib.request import urlretrieve
+	urlretrieve(url,'file_name.csv')
+
+# GET request using urllib
+
+	from urllib.request import urlopen,Request
+	url = www.google.com
+	request = Request(url)
+	response=urlopen(request)
+	html = response.read()		// for html response use .read method
+	response.close() 		// to close the response
+
+
+# Get request using requests
+	import requests
+	url=www.google.com
+	r = requests.get(url)		// to get response
+	text = r.text			// For html response
+
+
+# To create bs4 object
+	html_doc =  BeautifulSoup(html)
+	
+	title = soup.title		//to extract the title from html response
+	text = soup.text()		// to extract the text from html
+	
+	a_value = soup.find_all('a')
+	href_val = a_value.get('href')
+
+
+
+
+# Json format data
+	import json
+	with open('filename','r') as json_file:
+		json_data = json.load(json_file)
+
+	for k in json_data.keys():
+		print(k,':', json_data[k])		//json_data[k] is the value for a key and k is the key
+

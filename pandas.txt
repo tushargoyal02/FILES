@@ -48,3 +48,85 @@
 9 To divide and iterate large data
 	for chunk in pd.read_csv("file.name" , chunksize=100)      //chunksize will be tbe number of partition
 	
+
+10 For excel file to load use
+	pd.ExcelFile(name of file)
+
+
+
+
+11 df2 = xl.parse(1, parse_cols=[0], skiprows=[0], names=['Country'])	     // to parse spreadsheet 1 with col first, 1st row is skipped ,on country
+
+	To aceess particular sheet
+->	dictinoary[sheetname  or index]
+
+-------------------------------------------------
+	SAS file [Great for all analyst]
+	sas - statistical Analysis System [business analystics ]
+	stats - statistics + data	[academic social science research]
+-------------------------------------------------
+
+   ####-  from sas7bdat import SAS7BDAT
+
+		make file object by opening file
+	NOTE -> 	-  file.to_data_frame()	   //to convert to dataframe
+
+
+   -	For stata files
+	data = pd.read_stata('filename')		
+
+
+----------------------
+ HDF5 -- Hierachical Data Format version 5
+	 For huge dataset
+
+	import h5py
+----------------------
+
+	data=h5py.File("filename",'r')
+
+	for num in data.keys()		// To access the data keys as dictionary
+
+
+------------
+MATLAB FILeS
+-------------
+
+->	import scipy.io
+-> 	scipy.io.loadmat('filename')		//.savemat() to save mat files
+
+	Dictinary keys of python is Matlab variable names
+	Dictinary values of python are assigned to variable
+-> 	mat.keys()				// To print all the keys
+
+
+
+
+15  DataBases 
+        from sqlalchemy import create_engine
+        engine = create_engine("db:///name.sqlite")
+        table_name = engine.table_names()
+       
+        --> import packages, createEngine , connect to db, execute the querry
+       
+                                                                                                                                                      
+        con=engine.connect()
+        rs=con.execute("statemt")
+-->     df=pd.DataFrame(rs.fetchall())                          // fetchmany(size=3)            only some specific data
+        
+        [df.columns = rs.keys()]        //if column  name is not good
+       
+        con.close()
+       
+        # Set the DataFrame's column names
+        df.columns=rs.keys()
+       
+        with engine.connect() as con:
+                rs = con.execute("querry")
+       
+       
+       
+    ALTERNATIVE --   pd.read_sql_query("querry ",  engineName)
+                                                inner JOIN on tabl1.orderNo=table2.order2
+                                                                                                                                    75,0-1        83%
+

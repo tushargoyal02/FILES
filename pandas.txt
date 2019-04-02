@@ -130,3 +130,25 @@ MATLAB FILeS
                                                 inner JOIN on tabl1.orderNo=table2.order2
                                                                                                                                     75,0-1        83%
 
+
+
+
+
+	pd.info()					//to get info about all the coloumns in dataset
+	df.columnName.value_counts(dropna=False)	//value_counts is a method to count number of same data in a column
+	df.describe()					//only works with column with numeric data
+
+	df.coloumnName.plot('hist')		//to plot the graph as matplotlib should be defined as earlier and hist is type of graph
+
+
+	df.Boxplot(column='population', by='continent')			//outliers, min,max and 25,50,75 percentile
+
+
+
+-----------
+Pivoting = unmelting   turn unique values into seprate columns
+-----------
+
+
+weather = weather.pivot_table(values='value', index='date' , columns='element' , aggfunc=np.mean)
+	// index is colimn you want to fix the pivot and columns contains those you want to pivot 

@@ -39,3 +39,12 @@
 6 To set particular name at specific values use plt.text() & for grid use plt.grid(True)
   cmd 	plt.text(x_value, y_value ,  "name")
   cmd   plt.grid(True)
+
+
+
+------------
+SEABORN
+-------------
+	import seaborn as sns
+	sns.barplot(x,y)
+	sns.set(color_codes=True)

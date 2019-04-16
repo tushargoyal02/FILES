@@ -152,3 +152,93 @@ Pivoting = unmelting   turn unique values into seprate columns
 
 weather = weather.pivot_table(values='value', index='date' , columns='element' , aggfunc=np.mean)
 	// index is colimn you want to fix the pivot and columns contains those you want to pivot 
+
+
+object.index 		//to get the index
+There's a very simple method you can use to get back the original DataFrame from the pivoted DataFrame: .reset_index()
+
+
+
+
+PROBLEM -- When a column contain multiple values
+	1 Provide column with id_vars=[names]  for fixing some column value    // in pd.melt()
+	2 df['newCol'] = df.fromCOL.str[0]  //likewise to get 1st data
+
+	3 To split a column 
+		ebola_melt['str_split'] = ebola_melt.type_country.str.split('_')
+	4 To access particular index of splitted column
+		ebola_melt['type'] = ebola_melt.str_split.str.get(0)
+	
+
+
+TO CONCATINATE DataFrames
+	pd.concat([df1,df2])	// index label can be same here so use
+
+	pd.concat([df1,df2] , ignore_index=True)		// You will have index value different after concat too
+
+	Note -- By defalult axis is 0 hence row wise concat
+
+	-> For column wise concat use axis=1
+		pd.concat([df1,df2] , ignore_index=True , axis=1)
+
+
+
+
+
+
+-----------------------------------
+GLOBBING -- pattern matching for files names
+	*.csv	for any files with .csv extension
+	_?.csv	any single character_file
+
+
+	1 	import glob
+		csv_files = glob.glob('*.csv')
+
+
+	2 	USING LOOP
+		list_data=[]
+		for filename in csv_files:
+			data=pd.read_csv(filename)		// to read csv files
+			list_data.append(data)			// to append the readed files in list
+
+		pd.concat(list_data)				// we are using this list to concat the dataframes
+
+
+
+--------------------------------
+MERGING Of dataframes
+	
+	pd.merge(left=df1 , right=df2 ,on=None , left_on='state',right_on='name')
+
+------------------------------------
+
+DATA-TYPES 	print(df.dtypes)
+
+	1 To convert object column to string
+
+		df['col_name] = df[col_name].astype(str)
+
+	2 For sex column
+		df['sex] = df['sex'].astype('category')			//sex is a type of category datatype
+
+
+	3 To numeric value and blank values
+
+		df[col] = pd.to_numeric(df[col] , errors='coerce')	//errors='coerce' here turn string "-" to NULL
+
+
+
+
+--------------------------
+To give external names to column of dataframes
+
+	colName=['a','b','c']
+	df = pd.read_csv(filename ,  header=None , names=colName )	//names is used to give column name to dataframe
+
+	df = pd.read_csv(filename ,  header=None , names=colName , na_values=' -1' )	//na_values is used to detect the -1 in df as null & replace 													as NAN
+
+
+
+
+

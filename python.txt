@@ -137,3 +137,58 @@
 	for k in json_data.keys():
 		print(k,':', json_data[k])		//json_data[k] is the value for a key and k is the key
 
+
+
+
+-----------------------------------------------------
+import re		//pattern matching for any string
+
+	17 		\d*		//for any numeric value from 0 to 9
+	$17		\$\d*		// starting with a $sign
+	$17.00		\$\d*\.\d*	// \. are here for the decimal values
+	$17.89		\$\d*\.\d{2}	// {2} is specially for the two values
+	$17.895		^\$\d*\.\d{2}$	//to match from starting to end [not 17.89]
+
+
+	pattern =  re.compile('\$\d*\. \d{2}')
+	result = pattern.match('$17.89')
+	bool(result)
+
+
+
+
+When using a regular expression to extract multiple numbers (or multiple pattern matches, to be exact), you can use the re.findall()
+
+	re.findall('\d+')			// it will match pattern number 10 not as 1 and 0 seprately
+
+	- any string starting with capital letter
+		re.match('[A-Z]\w*')			//[A-Z] is used for string starting with capital letter
+
+
+
+
+		----------------------------------------------------
+	Apply method is used to apply the same work accross all rows or column
+	
+	1 use .replace("pattern wanna replace"  , "to which you waana replce")
+ 
+	2 make a function consisting of all work 
+		df['colname'] = df.apply(function_name , axis=1 , pattern=pattern)	axis=1 is for row
+
+
+----------------------------------
+
+	DROP & FILL DATA in dataset
+
+	df.drop_duplicates()					// drop only that data or rows which have exactly same data
+
+	df.dropna() 						// to drop all missing values		// .dropna()
+	df[col_toBeApply].fillna('valueWannaFill')		// .fillna()
+
+
+
+USE assert for programatically check any null values in dataframe
+
+	assert df['col'].notnull().all()		//if doesnt return anything then all thing are good otherwise an error
+
+

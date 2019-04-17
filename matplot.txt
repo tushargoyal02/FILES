@@ -48,3 +48,10 @@ SEABORN
 	import seaborn as sns
 	sns.barplot(x,y)
 	sns.set(color_codes=True)
+
+
+
+
+-----------------------
+	plt.savefig('img.jpg')			// This is used to save the files with diff extension
+

@@ -240,5 +240,11 @@ To give external names to column of dataframes
 
 
 
+To get the column values as numpy arrays to plot on MATPLOTLIB
 
+		close = df['colName'].values		//column value in numpy
+		type(close)				// check its type	
+		plt.plot(close)
 
+	OR can plot   close=df['colName']
+		      plt.plot(close)

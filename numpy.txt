@@ -69,3 +69,8 @@
 	x1.parse(Spreadsheet_Name)	//for a specific sheet
  
 
+11 To calcuate the absolute difference
+	np.abs(val1-val2)
+
+
+

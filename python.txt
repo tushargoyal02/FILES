@@ -192,3 +192,5 @@ USE assert for programatically check any null values in dataframe
 	assert df['col'].notnull().all()		//if doesnt return anything then all thing are good otherwise an error
 
 
+
+---------------------------------------

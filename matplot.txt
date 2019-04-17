@@ -55,3 +55,21 @@ SEABORN
 -----------------------
 	plt.savefig('img.jpg')			// This is used to save the files with diff extension
 
+
+
+
+	df.plot(subplots=True)			// to print all column  plot in a single plot
+
+
+
+df.plot(ax=axes[1], kind='hist', bins=30, normed=True, cumulative=True, range=(0,.3))	//cumalative is used to give cumulative distribution graph in 												increasing way and with the frequency
+
+
+	^ ^
+	| |
+
+
+
+
+
+

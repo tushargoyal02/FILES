@@ -248,3 +248,103 @@ To get the column values as numpy arrays to plot on MATPLOTLIB
 
 	OR can plot   close=df['colName']
 		      plt.plot(close)
+
+
+
+-------------------------------------------------
+	To get the quantiles in dataframe for a list
+	df.quantile([0.5,095])				//give the range value inside the list
+
+
+
+	df['col'].unique()				//gives all unique value available in a column of df
+
+	------------------------------------------------------------------
+	*	*	*
+
+	To get a particular set of value in a new df
+	new_ = df['colName'] == 'VALUE'		//new df with the filtered value
+	newDF = df.loc[new_ , : ]		// this will create to search that filtered value in all data frame
+
+	*	*	*	
+	-----------------------------------------------------------------
+
+To index and read data in ISO format
+
+	df3 = pd.read_csv(filename, index_col='Date', parse_dates=True)
+
+
+To convert string into pandas datatime 
+	pd.to_datetime(['2015-12-22 21:00']) 		or give format='format inside'		//it convert string to datatime object
+
+
+	REINDEXING sometime required to match data as required
+
+		df.reindex(last dataframe or column )
+		
+		To fill NAN values
+			df1.reindex(df , method='ffill')  //forwardfill nan value are filled with nearest proceding value
+			df1.reindex(df , method='bfill')  //backwardfill opposite to forwardfill
+
+
+	
+	
+RESAMPLING -- It is used to find statistics according to data , time or year or other stuff
+
+	daily_mean = df.resample('D').mean 	// resample method is used here ['D'] here is used for the day resampling in date 
+							'W' is for week
+							'D' is for day
+							'min' minute
+							'H'  hour
+							'A'   Year
+							'Q'  quarter
+							'M'   Month
+							'B'  Bussiness day
+
+
+
+
+Rolling means (or moving averages) are generally used to smooth out short-term fluctuations in time series data and highlight long-term trends.
+To use the .rolling() method, you must always use method chaining, first calling .rolling() and then chaining an aggregation method after it. For example, with a Series hourly_data,
+		 hourly_data.rolling(window=24).mean()
+
+To use the .rolling() method, you must always use method chaining, first calling .rolling() and then chaining an aggregation method after it. For example, with a Series hourly_data, hourly_data.rolling(window=24).mean()
+
+
+
+
+
+-----------------
+	df['col'].str.upper()			//for change in upper case
+		 .str.contains('data')		//to match substrig in the column
+
+
+Set local time zone first
+	central = df['Date'].dt.tz_localize('US/Central')
+
+	central.dt.tz_convert('US/Eastern')			//to convert to Eastern timezone
+
+
+
+Like for a df with time gap of 10 years if we extract values year wise we will have NAN value in those years hence [interpolate] is good to fill values linearly than forwardfill meathod.
+	
+
+	df.resample('A').first().interpolate('linear')
+
+
+
+
+
+pandas with matplotlib different style
+	df.plot(style='k.-')
+			color 		k
+			marker	 	.
+			linetype	- [solid]
+
+
+To retrive data in particular timestamp
+
+	df.loc['2012-02-22' : '2015-06-23'  , 'colname']
+
+
+

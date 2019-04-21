@@ -348,3 +348,55 @@ To retrive data in particular timestamp
 
 
 
+
+-------------------------------------------------------------------
+	To make all dataframe conversion to specific values
+
+	df.floordiv(12) 						// converting to dozens unit of dataframe
+
+	np.floor_divide(df,12)
+
+
+
+
+To assign any index
+	df.index = df['colName']			//that column will work as index for the dataframe
+	df.index.name = 'new name'			// this is the new name of index of a df 
+	del df['colName']				// this will delete that duplicate column
+
+
+	df.set_index(['col1','col2'])			// to set the index of col in a df
+	df.sort_index()					// to sort the index values 
+
+
+
+	df.loc['colName', (2),:]		// 2 here is the value for index sorted and filtered value
+	df.loc[(slice(None),2),:]	        //Use (slice(None), 2) to extract all rows in month 2
+---------------
+
+RESHAPING THE DATAFRAME
+	df.pivot(index='col1' , columns='col2' , values	='col3')	//col1 is index , col2 will be the columns and col3 will be the value in df
+
+
+   --	To divide same values to the columns
+	
+	df.unstack(level='gender') 				// all column will get the same value 
+
+   --	To make a wide df into smaller 
+	
+	df.stack(level='gender')				// wider df into small
+
+   -- 	To switch the index level
+	df.swaplevel(0,1)					// first index switch to second and vice versa
+		.sort_index						apply this to sort index
+
+--------------------------
+Groupby
+	df.groupby('colName').agg(['sum','count'])
+
+	df.groupby('colName').agg({'colname':'sum',  'col2':'count'])
+
+
+
+
+

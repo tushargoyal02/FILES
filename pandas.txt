@@ -397,6 +397,43 @@ Groupby
 	df.groupby('colName').agg({'colname':'sum',  'col2':'count'])
 
 
+----------------------------------
 
+REINDEXING THE DF
+	df.reindex(df1.index)					// set index of df from df1 index
+
+   ->	 Divide the two column
+		col1.divide(col2  , axis='rows' )		//divide the col1 by col2 values according to row
+
+	col1.pct_change() * 100					# (previous - current value)/previous value 	computation
+
+
+
+   -> 	ADD two dataframes
+	bronze.add(silver , fill_value=0)			// this will remove the null value for rows not present in both
+
+------------------
+Merging data frames
+	s1.append(s2) 						stack rows of s2 is append below s1  only column wise
+	pd.concat([s1,s2])					more proficient than append
+
+	pd,concat(df , keys=['bronze,silver'])			# this will make multiindex in a dataframe
+
+
+	pd.concat([df1,df2] ,axis=1, join='inner' )			# join will be inner and only common part
+
+
+	pd.merge(df1 , df2 , on=['col1' , 'col2']			// merge on what basics is provided in on
+	
+   ->   If both the column name are different then
+	
+		pd.merge(df1,df2 , left_on='col1' , right_on='con2)
+
+
+	df1.join(df2 , how= 'left')					// this will do an left join keeping all value of left side as same in new df
+
+
+   ->  Merged in an ordered way
+	 pd.merge_ordered(austin,houston)
 
 

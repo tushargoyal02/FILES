@@ -1,0 +1,40 @@
+
+1 To get all distinct value from a column
+	select DISTINCT	from films;
+
+2 To count number of rows in columns
+	Select COUNT(*) from table;
+
+3 To count and distinct values in table
+	select count(distinct colname) from table;			#distinct is pass inside count()
+	
+4 To do multiple conditon
+	select * from table where id=3 and name='tushar';
+
+5 Between is used to filter out values in a specific range
+	select * from table where year between(2000,1000);
+
+6 Like in sql to find pattern
+	
+	select * from table where year Like 'd%'	[all name start with d]
+
+7 AGG function
+	select avg(colName) from table;		#use sum() max() in place of avg()
+
+
+8 To alias, you use the AS keyword, which you've already seen earlier in this course.
+	SELECT MAX(budget) AS max_budget, MAX(duration) AS max_duration FROM films;
+
+9 ORDER BY IS used to do sorting
+	select name from people order by name ; 
+
+
+10 Group by operation
+	select release_year,avg(duration) from films group by release_year;
+
+11 aggregate functions can't be used in WHERE clauses. For example, the following query is invalid:
+	SELECT release_year FROM films GROUP BY release_year 
+		HAVING COUNT(title) > 10;
+
+
+

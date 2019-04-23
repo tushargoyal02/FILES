@@ -1,0 +1,91 @@
+1 To creat engine and connect to it
+	from sqlalchemy import create_engine
+	engine = create_engine('sqlite:///chapter5.sqlite')		#sqlite is db while chapter5 is table of db
+
+2 To group by the data
+	stmt.group_by('full column name')
+
+3 To order by values
+	stmt.order_by('value_name')	
+
+  In desc order order by
+	stmt.order_by(desc('value_name'))				# passs desc inside desc function	
+
+4 To make dataframe 
+	df.columns = result[0].keys()					# this will generate the column for dataframe
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+12 CASE Statement
+	Used to treat data differently based on condtion
+	Accept list of condition and end with else_ clause to determine what to do if doesnt match any condtions
+	
+	from sqlalchemy import case
+	stmt = select([	
+			func.sum(
+				case([
+				     (census.columns.state == 'New York' , census.columns.colName)
+					],else_=0))])
+
+13 CAST Statement 	
+	Converts data to another type
+	total_pop2000 = cast(func.sum(census.columns.pop2000), Float)
+
+
+14 Select_from with the Join
+	stmt = select([func.sum(colName)]
+	stmt = stmt.select_from(census.join(state_fact))		#this will select from the new table as joinned with the new one
+
+15 To make any table in database
+	from sqlalchemy import Table,Column , datatypes(Integer)
+
+	employees =Table ('employees', metadata,
+			Column ('id',Integer))
+
+15 To make any table in database
+	from sqlalchemy import Table,Column , datatypes(Integer)
+
+	employees =Table ('employees', metadata,
+			Column ('id',Integer) , unique=True , nullable=False)		#turns unqiue value and prevent not null
+
+   To check what constraits are present
+	employees.constraints
+
+
+16 INSERT data 
+	insert(data).values(name='Anna', count=1, amount=1000.00, valid=True)
+
+17 Update data
+	stmt = update(employees)
+	stmt = stmt.where(employee.columns.id == 3)
+	stmt = stmt.values(active=True)						# pass active=True to get value update and other value if change
+	
+
+18 To delete data
+	delete(table_name).where(id==3)
+
+19 To drop a table but data is present in metadata or python object
+	table_name.drop(engine)
+
+
+	table_name.drop_all(engine)				#it drops all table in a database
+	

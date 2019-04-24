@@ -1,3 +1,4 @@
+
 #! This is for matplotlib
  import matplotlib.pyplot as plt
 
@@ -67,6 +68,52 @@ df.plot(ax=axes[1], kind='hist', bins=30, normed=True, cumulative=True, range=(0
 
 	^ ^
 	| |
+
+
+
+-----------------------
+	MATPLOTLIB
+	
+	plt.plot(t,temperature ,'r')					# plot t vs temperature graph with color r
+
+	plt.axes([0.05,1.00,1.15])					# axes() is used to made axes explicitly
+NOTE -->	axes function consist of [x_lo , y-lower , width-figure , height-figure]
+
+
+
+	plt.subplpot(2,1,1)						# subplot consist of 3 values
+NOTE-> 		subplot(nrows , ncols , nsubplot )			#(m,n,k)
+		plt.axes() to explicitly lay out the axes, you will use plt.subplot(m, n, k) ,
+			to make the subplot grid of dimensions m by n and to make the kth subplot active.	
+				#use k=1 on left ,k=2 right , k=3 bottom left and soo on .
+
+
+
+
+7 To control upper and lower limit of axis 
+	xlim([xmin , xmax])				#same as for ylim
+
+  Can also be set using
+	plt.axis(( x_min , xmaxx  , yMin , ymax ))
+
+8 To save the image 
+	plt.savefig()							# this will save the image
+	
+
+9 LEGEND Is used to show all labels on the figure
+	plt.legend(loc='upper right') 					# this will show all labels on top upper right [loc specify where to put]
+
+
+10 Annotate() is used to show same types of labels like 
+	plt.annotate('label_name' , xy=(1 , 2 ) , arrowprops={'color':'red'})		#arrowprops is used to set arrow to the label
+	plt.annotate('label_name' , xy=(1 , 2 ) , xytext=(val1,val2), arrowprops = dict(facecolor='black')    #for single and 1 color arrow
+
+
+11 All thing for a graph is maintained by style sheet in matplotlib
+	plt.style.use('ggplot')						#put names inside
+
+	plt.style.available						# to get all style available 
+
 
 
 

@@ -1,0 +1,77 @@
+LINEAR REGRESSION IS USED TO DETERMINE HOW TWO FACTORS ARE RELATED TO EACH OTHER
+
+
+1 To work with seaborn import pandas and matplotlib first
+
+	tips = sns.load_dataset('tips')						#'tips' is here dataset and it load the dataset
+
+2 To plot
+	sns.lmplot(x = 'total_bill ' , y='tip' , data=tips   )	#data=tips is the dataframe
+	
+  To plot with factors on same graph
+	
+	sns.lmplot(x = 'total_bill ' , y='tip' , data=tips, hue='sex' , palette='Set1' )
+			# hue is the for what categorised datavalue ypu wanna show on the fig and palette defines the colour set.
+
+  To plot using factor seprately
+			
+	sns.lmplot(x = 'total_bill ' , y='tip' , data=tips, col='sex' )		#col='sex' is column on which 2 subplt created
+
+3 To know how much data missed the horizontal line
+
+	sns.residplot((x = 'total_bill ' , y='tip' , color='indianred')
+
+    --- 	the function sns.lmplot() is a higher-level interface to sns.regplot()	---
+
+
+4 Second order linear regression using regplot
+	sns.regplot(x='weight', y='mpg', data=auto, scatter=None, color='blue', label='order 1')
+
+
+5 To plot strip graph
+	sns.stripplot( y='tip' , data=tips) 			#y-axis will be tip value and data plot will be tips dataframe
+		# repeated value are generated on vertical and overlapped
+ 
+  To plot the graph not overlapped
+	
+	sns.stripplot( y='tip' , data=tips , jitter=True) 	# use jitter =True to remove overlapping
+
+	
+6 To plot Swarm plot
+			
+	sns.swarmplot( x='day' y='tip' , data=tips ) 		# swarmplot is used to plot same value at same level
+
+								# use hue='colValue'	to put differnt values
+
+
+7 To plot violinplot	
+	
+	sns.violinplot( y='tip' , data=tips) 			# graph will be thick at place point are less and vice-versa
+
+8 To use both violinplot and stripplot use both as
+	
+	sns.violinplot( y='tip' , data=tips ,inner=None) 	# inner=None will not fill value inside graph [hollow]
+	
+	sns.stripplot( y='tip' , data=tips , jitter=True) 	# both graphs will be plotted simuntaneously
+	
+
+
+PEARSON COEFFICIENT OF RELATION IS USED TO DETERMINE HOW TWO VALUES ARE DEPENDENT ON EACH OTHER
+	
+9 For two variable	[by default perason coefficient is calculated]
+	sns.jointplot(x='total_bill' , y='tip', data=tips)
+
+
+NOTE --> 	KDE -- KERNEL DISTRIBUTION Estimation
+
+
+	sns.jointplot(x='total_bill' , y='tip', data=tips , kind='kde')
+
+10 Covariance is used to depict relation between two table
+	sns.heatmap(covariance)
+
+11 To plot pairwise 
+	sns.pairplot(df)
+
+
+

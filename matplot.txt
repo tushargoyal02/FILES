@@ -116,7 +116,40 @@ NOTE-> 		subplot(nrows , ncols , nsubplot )			#(m,n,k)
 
 
 
+12	        plt.set_cmp('grayscale')                                        # set color map to grayscale                                                  
+        
+optional ->  plt.pcolor(z)                              # this have some disadv as value differ from top to bottom and left to right(grayscale effect)
+             plt.pcolor(z,cmp='gray)                    # set color map = gray [by default coloured value]
+        
+            plt.axis('tight')                           # to make white space remove near the figure
+        
+13        plt.meshgrid(x,y,z)                             # x and y are plotted on axes and z is plotted in fig
+        
+        plt.contour(z)                                  # use this when data varies continuosly [smooth curves]
+                plt.contour(z,30)                               # to plot 30 curves
+        plt.contourf(z)                                 # THIS MAKE filled coloured contour curves
 
+14 	To have a scale near the figure
+	plt.colorbar()
 
+14 To plot rectangular bins graph
+	
+	plt.hist2d(x,y ,bins=(10,20))			# x & y are 1D arrays
 
+15 For hexagonal bins
+	plt.hexbin(x,y , gridsize(15,10))			
 
+---------------------------------
+16 TO WORK WITH IMAGES                                                                                                                           
+         
+        img = plt.imread('image_name.hpg')
+         
+        plt.imshow(img)
+        plt.axis('off')                                         # to hide axes while showing images
+         
+         
+   To convert color image to grey-scale image
+         
+        collapsed = img.mean(axis=2)                            #take mean along axis 2
+         
+	

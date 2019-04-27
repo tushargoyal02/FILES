@@ -73,4 +73,30 @@
 	np.abs(val1-val2)
 
 
+----------------------------------------------------------
+
+12 MESHGRID
+	
+	u = np.linspace(-2,2,3)						#linspace make a 1D array
+				(first_val = start of array , second=till what vale or range  , third=number of samples)
+	v = np.linspace(-1,1,5)	
+	
+	X,Y = np.meshgrid(u,v) 						# make all point on a grid 
+	
+	z= X**2/25 + Y**2/4						# equation to make array
+							# above eqn is used to make dark image at lower value and light at high
+	
+	plt.set_cmp('grayscale')					# set color map to grayscale
+	
+optional ->  plt.pcolor(z)				# this have some disadv as value differ from top to bottom and left to right(grayscale effect)
+	     plt.pcolor(z,cmp='gray)			# set color map = gray [by default coloured value]
+
+	    plt.axis('tight')				# to make white space remove near the figure
+
+	plt.meshgrid(x,y,z)				# x and y are plotted on axes and z is plotted in fig
+
+	plt.contour(z)					# use this when data varies continuosly [smooth curves]
+		plt.contour(z,30)				# to plot 30 curves
+	plt.contourf(z)					# THIS MAKE filled coloured contour curves
+		
 

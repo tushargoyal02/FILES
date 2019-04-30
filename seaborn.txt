@@ -73,5 +73,12 @@ NOTE --> 	KDE -- KERNEL DISTRIBUTION Estimation
 11 To plot pairwise 
 	sns.pairplot(df)
 
+-----------------------------------------------
 
+ IMAGE HISTOGRAMS
+	
+	orig = plt.imread("imagename")
+	pixels = orig.flatten()			#flat 2D array into 1D array
+
+Second, use plt.twinx() to overlay plots with different vertical scales on a common horizontal axis.
 

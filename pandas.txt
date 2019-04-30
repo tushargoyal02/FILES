@@ -439,3 +439,10 @@ Merging data frames
 
 
 
+---------------------------------------------
+
+To convert datatime value in human readable form
+	labels = dates.strftime( '%b %d' )				# make formatted label
+	
+	plt.xticks (dates , labels , rotation=60)		# labels will be provided on x-axis and rotation will be 60 degrees
+

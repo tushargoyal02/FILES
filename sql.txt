@@ -37,4 +37,25 @@
 		HAVING COUNT(title) > 10;
 
 
+12 JOINS
+	INNER JOIN and left join are same
+	select a.id from table a inner join table b on a.id=b.id_val 
+
+   USING keyword is used to not use ON in same query where same values are column name are present
+
+13 SELF Join when you wanna compare same values by itself
+	
+	select year 
+		CASE WHEN year < 1990 THEN 'before 1990'
+		WHEN year <=1930 THEN 'between years'
+		ELSE 'after year' END
+		as year_group
+	from tables;
+
+
+14 Join are like
+	LEFT contains data of left table and matching right table content
+	RIGHT contains data of right table and matching left table content 
+	FULL contains data of left and right table and other value as null 
+	CROSS contains all possible relation of two tables.
 

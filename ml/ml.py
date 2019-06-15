@@ -1,3 +1,10 @@
+1 ModeGl is train for X_train and Y_train
+  Predict is done on X_test as how much it is accurate as y_test
+  Score is check between X_test and y_test
+  Mean square error is done between y_test and y_pred
+
+
+
 
 2 REINFORCEMENT LEARNING - Software agents interact with an environment
 	- learn how to optimize their behaviout 
@@ -78,3 +85,95 @@ Regression - When target variable is continuous
 	Can be used to select important feature of dataset
 	Shrinks the coefficient of less importance to zero
 
+# Classification reports and confusion matrices are great methods to quantitatively evaluate model performance,
+
+
+8 LOGISTIC REGRESSION FOR BINARY CLASSIFICATION
+	probabilty is greater than 0.5 [data labeled as 1]
+	probabilty is less than 0.5 [data labeled as 0.5]
+	
+ROC CURVE - [Receiver opearting curve] - is got by chnaging the threshold value[p]
+	
+	# ROC curves provide a way to visually evaluate models.
+	from sklearn.metrics import roc_curve
+
+	#.predict_proba() method which returns the probability of a given sample being in a particular class. 
+	y_pred = logreg.predict_prob( X_test )[:,1]
+
+
+
+
+MORE area under the curve(AUC) of ruc curve more good is the model
+
+	from sklearn.metrics import roc_auc_score
+	pass predicted probabilty to roc_auc_curve
+
+	#fpr is false positive right , true 
+	fpr, tpr, threshold = roc_curve( y_test,  y_pred) 		#roc_curve is function
+
+
+
+9 Hyperparamter tuning
+	-- Are the parameter which are not trained while fitting the data [Done by cross validation]
+	
+  -> GRID SEARCH CROSS_VALIDATION -  
+	
+	from sklearn.model_selection import GridSearchCV
+	param_grid = {'parameter Name here' : np.arrange(1,50)}			#range of choosing value as neighbours in np.arrange()
+	knn = KNeighborsClassifier()
+
+	knn_cv = GridSearchCV (knn, param_grid,cv=5) 	
+
+	knn_cv.fit()
+
+	# best_params_ to check the best parameter out there
+	knn_cv.best_params_
+
+	#best_score_ to check the best score out of all
+	knn_cv.best_score_
+
+
+
+ -> RandomizedSearchCV -
+		In which not all hyperparameter values are tried out. Instead, a fixed number of hyperparameter settings is sampled from 				specified probability distributions
+	Works same as grid search but grid search is computationally expensive	
+
+
+
+10 PreProcess data converting categorical data into values
+	- scikit learn [OneHotEncoder()]
+	- pandas [get_dummies()]
+
+	import pandas , read files
+	df_origin = pd.get_dummies(df)
+
+
+
+11 Replace not null value like 0 with nan values in data set
+
+	df.col.replace(0, np.nan, inplace=True)					# to get nan value in place of 0 to show in df.info()[null value]
+
+   Filling up nan values as like getting mean of nan or something else
+	
+	from sklearn.preprocessing import Imputer
+	imp=Imputer(missing_values='NaN', strategy='mean', axis=0)
+	#fitting the data
+	imp.fit(X)  
+
+	# transforming the data
+	X = imp.transform(X)
+
+
+
+12 PIPELINING IN SCIKIT LEARN
+	from sklearn.pipeline import Pipeline	
+	from sklearn.preprocessing import Imputer
+	imp=Imputer(missing_values='NaN', strategy='mean', axis=0)
+	logreg=LogisticRegression()
+	
+	# providing all steps as in tuple for doing work
+	steps = [('imputation', imp), ('logistic_regression', logreg)]
+	
+	pipeline= Pipeline(steps)
+	
+	divide data, fit with pipeline and predict with pipeline.predict

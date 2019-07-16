@@ -49,4 +49,51 @@
             from bokeh.models import HoverTool
 
             hover=HoverTool(tooltips=None, mode='hline')
-            
+
+    *   If we waana map all different species with different color
+
+                from bokeh.models import CategoricalColorMapper
+
+                mapper= CategoricalColorMapper( factors=['sentosa','virginica','versicolor'],
+                palette=['red','blue','green'])
+
+                # give
+                p.circle(color={'field':'species', 
+                'transformer': mapper})
+
+
+### Row of plots
+*   Plot 3 graph on horizontal row
+
+        from bokeh.layouts import row
+        
+        #same works with column 
+        layout = row(p1,p2,p3)
+
+        #row and column can be nested too
+        layout = row(column(p1,p2),p3)
+
+* Also support Gridplot
+
+      from bokeh.layouts import gridplot
+
+      layout=gridplot([[None, p1],
+      [p2,p3],
+      toolbar_location=None])
+
+   * list of list give list of rows for layout.
+
+
+
+* To create tabs and panel like windows tabs for graph
+
+      from bokeh.models.widgets import Tabs, Panel
+
+      first = Panel(child=row(p1,p2), title='first')
+
+      second = Panel(child=row(p3), title='second')
+
+      tabs = Tabs(tabs=[first, second])
+
+      
+        

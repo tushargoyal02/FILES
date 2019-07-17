@@ -95,5 +95,73 @@
 
       tabs = Tabs(tabs=[first, second])
 
-      
-        
+
+
+
+* For adding legend to graph
+    
+      # provide this addition argument
+      plot.circle(legend='colName')
+
+        # location of legend
+      plot.legend.location= 'top_left'
+
+
+* To show all the information of each point
+
+      hover = HoverTools(tooltips=[
+              ('speciesName', '@colname')
+
+      ])
+
+      plot= figure(tools=[hover, 'pan' , 
+      'wheel_zoom'])
+
+
+
+### App outline for Bokeh Server
+* Bokeh server is to synchronize python objects with web applications in a browser
+
+        # curdoc here is current document
+        from bokeh.io  import curdoc
+
+        #create plot and widgets
+
+
+        #add callbacks [trigger at any event]
+
+
+
+        # arrange plot and widget in layout
+
+        curdoc().add_root(layout)
+
+
+* To run bokeh file as server
+
+        bokeh serve --show myapp.py
+
+
+#### Uploading an drop down menu
+
+* Same as import curdoc, column , figure and ColumnDataSource, Select from bokeh.models
+
+        from bokeh.models import ColumnDataSource, Select
+
+        menu = Select(options=['uniform', 'normal', 'lognormal',
+        value='uniform', title='Distribution'])
+
+
+  * And in the callback value we select the menu.value to get the actual value being putted by the user or is been selected from the menu.
+
+
+* Button: Whenver a button is click an event is occur.
+
+        from bokeh.models import Button
+
+        button = Button(label='press me')
+
+        # button callback
+        def update():
+
+                button.on_click(update)

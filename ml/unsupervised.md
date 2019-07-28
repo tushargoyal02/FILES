@@ -46,3 +46,46 @@
 
 * In dendogram : height on dendogram represnt distance between merging clusters.
 
+
+* Fcluster method is used to extract the cluster label and return an numpy array.
+
+        - from scipy.cluster.hierarchy import fcluster
+        - label = fcluster(mergin, 15, criterion='distance')
+
+### T-sne for 2-D maps
+* It preserve nearness of samples
+* it has only fit_transform method.
+* All feature are different every time 
+
+        from sklearn.manifold import TSME
+        model = TSME(learning_rate=100)
+
+* Code to label each point with its company name has been written for you using plt.annotate()
+
+
+* PCA told how to shift data nearby to mean 0 and doesnt effect the value of the data.
+
+   * PCA discards low variance PCA feature
+    
+         from sklearn.decomposition import PCA
+        model = PCA()
+
+  * Principal Component: Is direction of variance along which data varies
+     * Available as components_ attribute of PCA Object.
+
+* Intrinsic dimension = number of feature needed to approximate the dataset.
+    * It is also number of PCA features with significant variance.
+
+* NOTE: Scatter plot work only if 2 or 3 features
+        So PCA identifies intrinsic dimension when sample have any number of features.
+
+
+### Non-negative matrix factorization
+
+* Dimension reduction technique
+* Easy to implement.
+* Only applicable where sample features must be non-negative(>=0)
+
+        from sklearn.decomposition import NMF
+        model = NMF(n_components=2)
+        
